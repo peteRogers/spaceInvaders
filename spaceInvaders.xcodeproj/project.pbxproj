@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2F7EBE2E29F6CC8F00195560 /* ORSSerial in Frameworks */ = {isa = PBXBuildFile; productRef = 2F7EBE2D29F6CC8F00195560 /* ORSSerial */; };
+		2F7EBE3029F801BD00195560 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7EBE2F29F801BD00195560 /* StartView.swift */; };
+		2F7EBE3229F9597B00195560 /* ExplosionParticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7EBE3129F9597B00195560 /* ExplosionParticle.swift */; };
 		2FD4BC5F29D43B11001F0E74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD4BC5E29D43B11001F0E74 /* AppDelegate.swift */; };
 		2FD4BC6129D43B11001F0E74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD4BC6029D43B11001F0E74 /* SceneDelegate.swift */; };
 		2FD4BC6329D43B11001F0E74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD4BC6229D43B11001F0E74 /* ViewController.swift */; };
@@ -19,6 +21,8 @@
 
 /* Begin PBXFileReference section */
 		2F7EBE2B29F280AD00195560 /* spaceInvaders.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = spaceInvaders.entitlements; sourceTree = "<group>"; };
+		2F7EBE2F29F801BD00195560 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		2F7EBE3129F9597B00195560 /* ExplosionParticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplosionParticle.swift; sourceTree = "<group>"; };
 		2FD4BC5B29D43B11001F0E74 /* spaceInvaders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spaceInvaders.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FD4BC5E29D43B11001F0E74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FD4BC6029D43B11001F0E74 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +70,8 @@
 				2FD4BC5E29D43B11001F0E74 /* AppDelegate.swift */,
 				2FD4BC6029D43B11001F0E74 /* SceneDelegate.swift */,
 				2FD4BC6229D43B11001F0E74 /* ViewController.swift */,
+				2F7EBE2F29F801BD00195560 /* StartView.swift */,
+				2F7EBE3129F9597B00195560 /* ExplosionParticle.swift */,
 				2FD4BC6429D43B11001F0E74 /* Main.storyboard */,
 				2FD4BC6729D43B13001F0E74 /* Assets.xcassets */,
 				2FD4BC6929D43B13001F0E74 /* LaunchScreen.storyboard */,
@@ -152,9 +158,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FD4BC7329D43B65001F0E74 /* ScreenObject.swift in Sources */,
+				2F7EBE3029F801BD00195560 /* StartView.swift in Sources */,
 				2FD4BC6329D43B11001F0E74 /* ViewController.swift in Sources */,
 				2FD4BC5F29D43B11001F0E74 /* AppDelegate.swift in Sources */,
 				2FD4BC6129D43B11001F0E74 /* SceneDelegate.swift in Sources */,
+				2F7EBE3229F9597B00195560 /* ExplosionParticle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
