@@ -14,6 +14,7 @@ class StartView: UIView {
     weak var delegate: StartViewDelegate?
 
     let button = UIButton(type: .system)
+    let highScoreLabel = UILabel()
      
      override init(frame: CGRect) {
          super.init(frame: frame)
@@ -26,10 +27,34 @@ class StartView: UIView {
          // Add the button to the view
          addSubview(button)
          
-         // Set up constraints for the button
+         // Set the button's constraints
          button.translatesAutoresizingMaskIntoConstraints = false
-         button.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-         button.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+         NSLayoutConstraint.activate([
+             button.centerXAnchor.constraint(equalTo: centerXAnchor),
+             button.centerYAnchor.constraint(equalTo: centerYAnchor)
+         ])
+         
+       
+         highScoreLabel.text = ""
+         highScoreLabel.font = UIFont.boldSystemFont(ofSize: 90)
+         highScoreLabel.textColor = .white
+         // Add the label to the view
+         addSubview(highScoreLabel)
+
+         // Set the label's constraints
+         highScoreLabel.translatesAutoresizingMaskIntoConstraints = false
+         NSLayoutConstraint.activate([
+            highScoreLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            highScoreLabel.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -80)
+         ])
+         
+         
+//         // Set up constraints for the button
+//         button.translatesAutoresizingMaskIntoConstraints = false
+//         button.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+//         button.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        
+         
         
      }
      
@@ -44,6 +69,17 @@ class StartView: UIView {
     
     func activate(){
         self.alpha = 1
+    }
+    
+    func showHighScore(){
+        button.setTitle("RESTART", for: .normal)
+        highScoreLabel.text = "You Got The High Score!"
+        
+    }
+    
+    func youFailed(){
+        highScoreLabel.text = "Hard Luck"
+        button.setTitle("RESTART", for: .normal)
     }
     
    

@@ -105,6 +105,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         view.addSubview(startView!)
         
         self.view.addSubview(sunglassesView)
+        sendData(string: "0")
         
     }
     
@@ -192,24 +193,38 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
             if(Date.now > spawnTime){
                 
                 spawnTime = .now.addingTimeInterval(TimeInterval(spawnLength))
-                spawnLength = spawnLength - 0.15
+                spawnLength = spawnLength - 0.10
                 if(spawnLength < 1){
                     spawnLength = 1
                 }
                 ships.append(spaceShip(point: CGPoint(x: CGFloat.random(in:300...(self.view.frame.width - 300)), y: 0), rotation: 0.0, hit: false, speed: CGFloat.random(in: 2 ... fallRate)))
-                fallRate += 0.025
+                fallRate += 0.020
                 //print(ships.count)
             }
             
-            //remove fallen ships
+            //remove fallen ships // kill game
             if let index:Int = ships.firstIndex(where: {$0.point.y > self.view.frame.height}) {
                 ships.remove(at: index)
                 // print("gone")
+                
                 started = false
                 if(score > highScore){
                     highScore = score
+                    startView!.showHighScore()
+                    sendData(string: "3")
+                    Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { timer in
+                        self.sendData(string: "4")
+                    }
+                }else{
+                    startView!.youFailed()
+                    sendData(string: "1")
+                    Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false) { timer in
+                        self.sendData(string: "2")
+                    }
                 }
                 startView!.activate()
+                ships.removeAll()
+                missiles.removeAll()
             }
             
             //remove hit ships
@@ -387,8 +402,8 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     }
     
     func sendData(string:String) {
-        
-        if let data = string.data(using: String.Encoding.utf8) {
+        let s = "\(string)\n"
+        if let data = s.data(using: String.Encoding.utf8) {
             self.serialPort?.send(data)
         }
     }
